@@ -27,6 +27,11 @@ public class PlanController{
         return planService.patch(jsonStr, id, etag);
     }
 
+    @PutMapping("/plan/put/{id}/")
+    public ResponseEntity<?> put(@RequestBody String jsonStr, @PathVariable String id, @RequestHeader("If-Match") String etag){
+        return planService.put(jsonStr, id, etag);
+    }
+
     @DeleteMapping("/plan/delete/{id}/")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     public ResponseEntity<?> delete(@PathVariable String id, @RequestHeader("If-Match") String etag){
